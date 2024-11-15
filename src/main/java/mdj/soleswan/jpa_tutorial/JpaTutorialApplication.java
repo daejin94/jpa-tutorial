@@ -21,18 +21,22 @@ public class JpaTutorialApplication {
 
         ex.begin();
 
-        Member member = new Member();
+        try {
 
-        member.setId(1L);
-        member.setName("hello");
+            Member member = new Member();
 
-        em.persist(member);
+            member.setId(2L);
+            member.setName("helloB");
 
-        ex.commit();
+            em.persist(member);
 
-        //code
+            ex.commit();
+        } catch (Exception e) {
+            ex.rollback();
+        } finally {
+            em.close();
+        }
 
-        em.close();
         emf.close();
 
     }
