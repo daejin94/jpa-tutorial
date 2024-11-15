@@ -31,6 +31,11 @@ public class JpaTutorialApplication {
             em.persist(member);
             System.out.println("=== AFTER ===");
 
+            Member findMember = em.find(Member.class, 101L);
+
+            System.out.println("findMember.id = " + findMember.getId());
+            System.out.println("findMember.name = " + findMember.getName());
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
