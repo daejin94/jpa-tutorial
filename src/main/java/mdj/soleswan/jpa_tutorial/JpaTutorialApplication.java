@@ -21,11 +21,12 @@ public class JpaTutorialApplication {
 
         try {
 
-            Member findMember = em.find(Member.class, 102L);
-            findMember.setName("winter");
+            Member member = new Member(300L, "member300");
+            em.persist(member);
+
+            em.flush();
 
             System.out.println("=====================================");
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
