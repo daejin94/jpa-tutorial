@@ -23,10 +23,9 @@ public class Member {
     @Id
     private long id;
     // 유니크는 잘 안씀. 유니크 제약조건 이름이 개판이라서
-    @Column(name = "name", nullable = false, unique = true, insertable = false, updatable = true, length = 10/*, columnDefinition = "varchar(100) default 'empty"*/)
+    @Column(name = "name")
     private String username;
 
-    @Column(scale = 0)
     private BigDecimal age;
 
     @Enumerated(EnumType.STRING)
