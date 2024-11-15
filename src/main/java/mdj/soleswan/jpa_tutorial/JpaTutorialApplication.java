@@ -25,8 +25,8 @@ public class JpaTutorialApplication {
 
             Member member = new Member();
 
-            member.setId(2L);
-            member.setName("helloB");
+            member.setId(1L);
+            member.setName("helloA");
 
             em.persist(member);
 
