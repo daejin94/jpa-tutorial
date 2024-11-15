@@ -23,8 +23,8 @@ public class JpaTutorialApplication {
 
         try {
             Member findMember = em.find(Member.class, 1L);
-            System.out.println("findMember.id " + findMember.getId());
-            System.out.println("findMember.name " + findMember.getName());
+
+            em.remove(findMember);
 
             ex.commit();
         } catch (Exception e) {
