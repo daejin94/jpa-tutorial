@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.math.BigDecimal;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +22,12 @@ public class Member {
 
     @Id
     private long id;
-    @Column(name = "name")
+    // 유니크는 잘 안씀. 유니크 제약조건 이름이 개판이라서
+    @Column(name = "name", nullable = false, unique = true, insertable = false, updatable = true, length = 10/*, columnDefinition = "varchar(100) default 'empty"*/)
     private String username;
 
-    private Integer age;
+    @Column(scale = 0)
+    private BigDecimal age;
 
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
