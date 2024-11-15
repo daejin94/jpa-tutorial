@@ -23,7 +23,7 @@ public class JpaTutorialApplication {
 
             Member findMember1 = em.find(Member.class, 101L);
             Member findMember2 = em.find(Member.class, 101L);
-
+            System.out.println(findMember1 == findMember2); // true
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
