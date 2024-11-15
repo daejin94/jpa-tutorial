@@ -21,9 +21,14 @@ public class JpaTutorialApplication {
 
         try {
 
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
-            System.out.println(findMember1 == findMember2); // true
+            Member member1 = new Member(102L, "jijel");
+            Member member2 = new Member(103L, "karina");
+
+            em.persist(member1);
+            em.persist(member2);
+
+            System.out.println("=====================================");
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
