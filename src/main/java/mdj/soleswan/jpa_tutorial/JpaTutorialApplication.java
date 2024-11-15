@@ -22,10 +22,10 @@ public class JpaTutorialApplication {
         ex.begin();
 
         try {
-            Member findMember = em.find(Member.class, 1L);
+            Member findMember = em.find(Member.class, 2L);
 
-            em.remove(findMember);
-
+            findMember.setName("helloBB");
+            // set 하면 저장 따로 안해도 업데이트 됨 ㄷㄷ;
             ex.commit();
         } catch (Exception e) {
             ex.rollback();
