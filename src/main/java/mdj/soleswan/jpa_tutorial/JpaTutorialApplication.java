@@ -21,11 +21,8 @@ public class JpaTutorialApplication {
 
         try {
 
-            Member member1 = new Member(102L, "jijel");
-            Member member2 = new Member(103L, "karina");
-
-            em.persist(member1);
-            em.persist(member2);
+            Member findMember = em.find(Member.class, 102L);
+            findMember.setName("winter");
 
             System.out.println("=====================================");
 
